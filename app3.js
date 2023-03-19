@@ -34,22 +34,23 @@ console.log(allLocations);
 let parents = document.getElementById("parents");
 let myTable = document.createElement("table");
 parents.appendChild(myTable);
+function header() {
+  let firstRow = document.createElement("tr");
+  myTable.appendChild(firstRow);
 
-let firstRow = document.createElement("tr");
-myTable.appendChild(firstRow);
-
-let firstHeader = document.createElement("th");
-firstRow.appendChild(firstHeader);
-firstHeader.textContent = "..........";
-
-for (let index = 0; index < hours.length; index++) {
   let firstHeader = document.createElement("th");
   firstRow.appendChild(firstHeader);
-  firstHeader.textContent = hours[index];
+  firstHeader.textContent = null;
+
+  for (let index = 0; index < hours.length; index++) {
+    let firstHeader = document.createElement("th");
+    firstRow.appendChild(firstHeader);
+    firstHeader.textContent = hours[index];
+  }
+  let firstHeader1 = document.createElement("th");
+  firstRow.appendChild(firstHeader1);
+  firstHeader1.textContent = "Daily Location Total";
 }
-let firstHeader1 = document.createElement("th");
-firstRow.appendChild(firstHeader1);
-firstHeader1.textContent = "Daily Location Total";
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -78,10 +79,37 @@ Location.prototype.customersPerHour = function () {
   secondRow.appendChild(fHeader);
   fHeader.textContent = this.sum;
 };
-
-
-
-
+header();
 for (let index = 0; index < allLocations.length; index++) {
   allLocations[index].customersPerHour();
 }
+
+function makingFooter() {
+  let finalRow = document.createElement("tr");
+  myTable.appendChild(finalRow);
+
+  let firstFooterTh = document.createElement("th");
+  finalRow.appendChild(firstFooterTh);
+  firstFooterTh.textContent = "TOTALS";
+  let totalOfTotal = 0;
+
+  for (let i = 0; i < hours.length; i++) {
+    let totalEachHour = 0;
+
+    for (let j = 0; j < allLocations.length; j++) {
+      totalEachHour += allLocations[j].customersPerHourArray[i];
+      totalOfTotal += allLocations[j].customersPerHourArray[i];
+    }
+
+    let elementsTootl = document.createElement("th");
+    finalRow.appendChild(elementsTootl);
+    elementsTootl.textContent = totalEachHour;
+  }
+
+  console.log(totalOfTotal);
+  let finalFooterth = document.createElement("th");
+  finalRow.appendChild(finalFooterth);
+  finalFooterth.textContent = totalOfTotal;
+}
+
+makingFooter();
