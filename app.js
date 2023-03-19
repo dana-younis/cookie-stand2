@@ -95,8 +95,6 @@ let Tokyo = {
 Tokyo.customersPerHour();
 Tokyo.simulatedAmountsOfCookies();
 
-
-
 let Dubai = {
   total: 0,
   min: 11,
@@ -134,13 +132,6 @@ let Dubai = {
 Dubai.customersPerHour();
 Dubai.simulatedAmountsOfCookies();
 
-
-
-
-
-
-
-
 let Paris = {
   total: 0,
   min: 20,
@@ -177,10 +168,6 @@ let Paris = {
 
 Paris.customersPerHour();
 Paris.simulatedAmountsOfCookies();
-
-
-
-
 
 let Lima = {
   total: 0,
