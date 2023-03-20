@@ -1,4 +1,23 @@
-table, th, td {
-    border: 1px solid;
 
+
+table, th, td {
+    border: 1px solid black;
   }
+
+  img{
+    
+      
+        width: 14%;
+        
+     
+  }
+  header{
+    display: inline;
+        width: 300px;
+     text-align: center;
+      border: 2px solid gray;
+      outline: hsl(347, 96%, 48%) solid 2px;
+   
+      font-size: 66px;
+      text-shadow: 1px 2px red;
+    }
