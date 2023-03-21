@@ -29,7 +29,6 @@ let Tokyo = new Location(3, 24, 1.2, "Tokyo");
 let Dubai = new Location(11, 38, 3.7, "Dubai");
 let Paris = new Location(20, 38, 2.3, "Paris");
 let Lima = new Location(2, 16, 4.6, "Lima");
-console.log(allLocations);
 
 let parents = document.getElementById("parents");
 let myTable = document.createElement("table");
@@ -40,7 +39,7 @@ function header() {
 
   let firstHeader = document.createElement("th");
   firstRow.appendChild(firstHeader);
-  firstHeader.textContent = null;
+  firstHeader.textContent = null
 
   for (let index = 0; index < hours.length; index++) {
     let firstHeader = document.createElement("th");
@@ -101,15 +100,40 @@ function makingFooter() {
       totalOfTotal += allLocations[j].customersPerHourArray[i];
     }
 
-    let elementsTootl = document.createElement("th");
-    finalRow.appendChild(elementsTootl);
-    elementsTootl.textContent = totalEachHour;
+    let elements = document.createElement("th");
+    finalRow.appendChild(elements);
+    elements.textContent = totalEachHour;
   }
 
-  console.log(totalOfTotal);
-  let finalFooterth = document.createElement("th");
-  finalRow.appendChild(finalFooterth);
-  finalFooterth.textContent = totalOfTotal;
+  let finalFooterTh = document.createElement("th");
+  finalRow.appendChild(finalFooterTh);
+  finalFooterTh.textContent = totalOfTotal;
 }
 
+let CookiesForm = document.getElementById("CookiesForm");
+CookiesForm.addEventListener("submit", submitter);
+
+function submitter(event) {
+  event.preventDefault();
+  let localName = event.target.localName.value;
+
+  let maxCustomers = event.target.maxCustomers.value;
+
+  let minCustomers = event.target.minCustomers.value;
+
+  let avgCookies = event.target.avgCookies.value;
+
+  new Location(minCustomers, maxCustomers, avgCookies, localName);
+
+  myTable.textContent = "";
+
+  header();
+
+  for (let i = 0; i < allLocations.length; i++) {
+    allLocations[i].total = 0;
+    allLocations[i].customersPerHour();
+  }
+
+  makingFooter();
+}
 makingFooter();

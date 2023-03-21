@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   <header>Salmon Cookies</header>
-   <main>
-    <div id="parents"></div>
-   </main>
-   <footer>
-    <script src="./app3.js"></script>
-   </footer>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>Salmon Cookies</header>
+    <main>
+      <div id="parents"></div>
+      <form action="" id="CookiesForm">
+        <fieldset>
+            <legend>Knew location</legend>
+          <label for="localName">local Name</label>
+          <input type="text" id="localName" name="localName" />
+
+          <br />
+          <br />
+          <label for="maxCustomers">max Customers</label>
+          <input type="number" id="maxCustomers" name="maxCustomers" min="1"/>
+
+          <label for="minCustomers">min Customers</label>
+          <input type="number" id="minCustomers" name="minCustomers" min="0" />
+
+          <label for="avgCookies">avg Cookies</label>
+          <input type="number" id="avgCookies" name="avgCookies" min="1" />
+
+          <input type="submit" value="submit" />
+        </fieldset>
+      </form>
+    </main>
+    <footer>
+      <script src="./app3.js"></script>
+    </footer>
+  </body>
 </html>
